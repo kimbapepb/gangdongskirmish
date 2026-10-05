@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id"
+  ><head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width,initial-scale=1" /><title
+      >Arrest Warrant · Elite Protection Bureau</title
+    ><link rel="stylesheet" href="style.css" /></head
+  ><body
+    ><header
+      ><a href="index.html" class="brand"
+        ><img src="assets/EPB%20Logo.png" alt="" onerror="this.hidden = true" /><span
+          >Elite Protection Bureau</span
+        ></a
+      ></header
+    ><main id="secure"
+      ><section class="gate"
+        ><a class="back" href="index.html">Back to inbox</a><h1>Arrest Warrant</h1
+        ><p>Enter the password to access this document.</p
+        ><form id="unlock"
+          ><label for="password">Password</label
+          ><div class="passwordfield"
+            ><input id="password" type="password" required autocomplete="off" /><button
+              type="button"
+              id="show"
+              aria-label="Show password"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+                <circle cx="12" cy="12" r="3" /></svg></button></div
+          ><button class="primary" type="submit">Open the Documents</button
+          ><p id="error" role="alert"></p></form></section></main
+    ><script>
+      const payload = {
+        salt: "D6rbHAq2YbVd6En56Od7zA==",
+        iv: "LtsSSJX2Gl8DLJ9H",
+        data:
+          "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",
+      };
+      const bytes = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+      document.getElementById("show").onclick = () => {
+        const p = document.getElementById("password");
+        p.type = p.type === "password" ? "text" : "password";
+        document
+          .getElementById("show")
+          .setAttribute("aria-label", p.type === "password" ? "Show password" : "Hide password");
+      };
+      document.getElementById("unlock").onsubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const raw = await crypto.subtle.importKey(
+            "raw",
+            new TextEncoder().encode(document.getElementById("password").value),
+            "PBKDF2",
+            false,
+            ["deriveKey"],
+          );
+          const key = await crypto.subtle.deriveKey(
+            { name: "PBKDF2", salt: bytes(payload.salt), iterations: 120000, hash: "SHA-256" },
+            raw,
+            { name: "AES-GCM", length: 256 },
+            false,
+            ["decrypt"],
+          );
+          const result = await crypto.subtle.decrypt(
+            { name: "AES-GCM", iv: bytes(payload.iv) },
+            key,
+            bytes(payload.data),
+          );
+          document.getElementById("secure").innerHTML = new TextDecoder().decode(result);
+          document.getElementById("secure").classList.add("unlocked");
+        } catch {
+          document.getElementById("error").textContent = "Incorrect password. Please try again.";
+        }
+      };
+    </script></body
+  ></html
+>

@@ -1,0 +1,1092 @@
+:root {
+  --ink: #1e2a37;
+  --navy: #141d2b;
+  --muted: #617283;
+  --line: #c9d2db;
+  --pale: #edf1f5;
+  --blue: #4c607a;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #dfe5eb;
+  font:
+    15px/1.75 Arial,
+    sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a,
+input {
+  outline-offset: 5px;
+}
+button {
+  cursor: pointer;
+}
+header {
+  height: 84px;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+}
+.brand {
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+.brand span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 2.8px;
+  color: #aab7c6;
+  margin-left: 28px;
+}
+.classified {
+  font-size: 10px;
+  letter-spacing: 2px;
+  border: 1px solid #617283;
+  padding: 7px 13px;
+}
+footer {
+  padding: 26px 5vw;
+  display: flex;
+  justify-content: space-between;
+  color: #617283;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+.mailapp {
+  max-width: 1400px;
+  margin: 36px auto;
+  min-height: 640px;
+  display: grid;
+  grid-template-columns: 235px 1fr;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 48px #1e2a3712;
+}
+aside {
+  background: #e9eef3;
+  border-right: 1px solid var(--line);
+  padding: 32px 22px;
+  position: relative;
+}
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+aside h2 {
+  font-size: 27px;
+  margin: 15px 0 30px;
+}
+.folder {
+  background: #4c607a;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 3px;
+}
+.folder b {
+  float: right;
+  font-size: 12px;
+}
+.asidebottom {
+  position: absolute;
+  bottom: 30px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.asidebottom small {
+  font-size: 9px;
+  letter-spacing: 0;
+}
+.mailmain {
+  padding: 32px 40px;
+}
+.mailtop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
+}
+.mailtop h1 {
+  font-size: 25px;
+  margin: 0;
+}
+.mailtop small {
+  font-size: 9px;
+  margin-left: 14px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+.mailtop > span {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.mailrow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+  background: var(--pale);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue);
+  padding: 25px;
+  margin-top: 26px;
+  color: var(--ink);
+}
+.mailrow:hover {
+  background: #e1e8f0;
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: #dbe2ea;
+  color: #4c607a;
+  border: 1px solid #bdc9d6;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.mailrow strong,
+.mailrow b,
+.mailrow small {
+  display: block;
+}
+.mailrow strong {
+  font-size: 11px;
+  color: var(--muted);
+}
+.mailrow b {
+  font-size: 16px;
+  margin: 4px 0;
+}
+.mailrow small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.rowarrow {
+  margin-left: auto;
+  font-size: 22px;
+}
+.back {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 12px;
+  display: inline-block;
+  margin: 20px 0 30px;
+}
+article h1 {
+  font:
+    42px/1.18 Georgia,
+    serif;
+  margin: 14px 0 26px;
+}
+.sender {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 23px;
+}
+.sender strong {
+  font-size: 12px;
+}
+.sender small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.badge {
+  margin-left: auto;
+  font-size: 9px;
+  letter-spacing: 1px;
+  border: 1px solid var(--line);
+  padding: 4px 9px;
+}
+.mailbody {
+  max-width: 850px;
+  padding: 14px 0 24px;
+}
+.mailbody p {
+  margin: 22px 0;
+}
+.attachmentheading {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.attachmentheading span {
+  float: right;
+  color: var(--muted);
+}
+.attachments {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 17px;
+}
+.attachment {
+  border: 1px solid var(--line);
+  padding: 19px;
+  background: #f6f8fa;
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 3px 12px;
+}
+.attachment:hover {
+  border-color: var(--blue);
+  background: #edf1f5;
+}
+.fileicon {
+  grid-row: span 3;
+  border: 1px solid #b7c3d0;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+}
+.attachment strong {
+  font-size: 12px;
+}
+.attachment small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.filetype {
+  font-size: 8px;
+  letter-spacing: 1.4px;
+  color: var(--blue);
+  margin-top: 6px;
+}
+.document {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px 35px;
+}
+.paper {
+  position: relative;
+  background: #f5f5f1;
+  padding: 55px 62px;
+  box-shadow:
+    8px 8px 0 #bdc7d1,
+    0 20px 55px #141d2b20;
+  border: 1px solid #b4bec9;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, #1e2a3702 4px);
+}
+.docmeta {
+  font: 9px/1.6 monospace;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #aeb9c4;
+  padding-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+.paper h1 {
+  font:
+    42px/1.18 Georgia,
+    serif;
+  margin: 45px 0 22px;
+}
+.stamp {
+  position: absolute;
+  right: 58px;
+  top: 110px;
+  border: 2px solid #617283;
+  color: #617283;
+  font: 10px monospace;
+  letter-spacing: 2px;
+  transform: rotate(-8deg);
+  padding: 6px;
+}
+.rule {
+  height: 7px;
+  background: var(--blue);
+  margin-bottom: 30px;
+}
+.paper p {
+  font-family: Georgia, serif;
+  font-size: 16px;
+}
+.signature {
+  font: 9px/2 monospace;
+  letter-spacing: 2px;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding-top: 20px;
+  color: var(--muted);
+}
+.note {
+  color: var(--muted);
+  font: 12px/1.7 Arial !important;
+}
+.paper h2 {
+  font:
+    20px Georgia,
+    serif;
+  margin: 30px 0 15px;
+}
+.paper h2 small {
+  font: 9px Arial;
+  letter-spacing: 1px;
+  margin-left: 12px;
+}
+.tablewrap {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+  line-height: 1.6;
+}
+th {
+  text-align: left;
+  background: var(--blue);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 0.7px;
+  padding: 12px;
+}
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  min-width: 100px;
+}
+tbody tr:nth-child(even) {
+  background: #e7ebee;
+}
+.gate {
+  max-width: 510px;
+  margin: 65px auto;
+  background: #f6f8fa;
+  border: 1px solid var(--line);
+  padding: 30px 42px 42px;
+  box-shadow: 0 18px 60px #1e2a3715;
+}
+.gate .back {
+  margin-top: 0;
+}
+.lock {
+  font-size: 38px;
+  color: var(--blue);
+  margin: 15px 0;
+}
+.gate h1 {
+  font: 31px/1.25 Georgia;
+}
+.gate p {
+  font-size: 13px;
+  color: var(--muted);
+}
+label {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 7px;
+}
+.passwordfield {
+  display: flex;
+  border: 1px solid #a6b3c2;
+  background: white;
+}
+.passwordfield input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 12px;
+  background: transparent;
+}
+.passwordfield button {
+  border: 0;
+  background: none;
+  padding: 10px 15px;
+  color: var(--muted);
+}
+.primary {
+  width: 100%;
+  background: var(--blue);
+  color: #fff;
+  border: 0;
+  padding: 13px;
+  margin-top: 16px;
+}
+#error {
+  color: #954646;
+}
+.unlocked {
+  max-width: 1100px;
+  margin: auto;
+}
+.chathead {
+  background: #f5f7f9;
+  padding: 25px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  margin-top: 35px;
+}
+.chathead small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.chathead > span:last-child {
+  margin-left: auto;
+  font-size: 10px;
+}
+.chatlog {
+  padding: 30px;
+  background: #e9eef3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.bubble {
+  max-width: 75%;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #00000005;
+}
+.bubble small {
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.bubble p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+.in {
+  align-self: flex-start;
+  background: white;
+}
+.out {
+  align-self: flex-end;
+  background: #4c607a;
+  color: white;
+}
+.disabled {
+  align-self: center;
+  font: 11px monospace;
+  color: var(--muted);
+  padding: 20px;
+}
+.profiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+figure {
+  margin: 0;
+}
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+figcaption {
+  font: 11px monospace;
+  padding: 9px 0;
+  color: var(--muted);
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 760px) {
+  header {
+    height: 73px;
+    padding: 0 20px;
+  }
+  .brand {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  .brand span {
+    font-size: 7px;
+  }
+  .classified {
+    font-size: 7px;
+    padding: 5px;
+    letter-spacing: 1px;
+  }
+  .mailapp {
+    margin: 16px;
+    display: block;
+    min-height: 70vh;
+  }
+  aside {
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  aside h2,
+  .asidebottom,
+  aside .eyebrow {
+    display: none;
+  }
+  .folder {
+    padding: 8px 13px;
+  }
+  .mailmain {
+    padding: 22px 18px;
+  }
+  .mailtop small,
+  .mailtop > span {
+    display: none;
+  }
+  .mailrow {
+    padding: 17px 12px;
+    gap: 11px;
+  }
+  .mailrow small {
+    display: none;
+  }
+  .mailrow b {
+    font-size: 14px;
+  }
+  article h1 {
+    font-size: 32px;
+  }
+  .badge {
+    display: none;
+  }
+  .attachments {
+    grid-template-columns: 1fr;
+  }
+  .mailbody {
+    font-size: 14px;
+  }
+  .document {
+    padding: 0 15px 30px;
+  }
+  .paper {
+    padding: 30px 22px;
+  }
+  .docmeta {
+    font-size: 7px;
+    gap: 10px;
+    letter-spacing: 1px;
+  }
+  .paper h1 {
+    font-size: 30px;
+    margin-top: 55px;
+  }
+  .stamp {
+    top: 90px;
+    right: 22px;
+    font-size: 8px;
+  }
+  .paper p {
+    font-size: 15px;
+  }
+  footer {
+    gap: 18px;
+    font-size: 7px;
+  }
+  .gate {
+    margin: 30px 18px;
+    padding: 25px;
+  }
+  .chathead {
+    margin-top: 16px;
+    padding: 18px;
+  }
+  .chatlog {
+    padding: 20px 14px;
+  }
+  .bubble {
+    max-width: 88%;
+    padding: 13px;
+  }
+  .profiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("assets/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body,
+button,
+input,
+table,
+.paper p {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+h1,
+h2,
+article h1,
+.paper h1,
+.paper h2,
+.gate h1,
+.brand {
+  font-family: "Bebas Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+.brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+.brand span {
+  display: inline;
+  font-size: inherit;
+  margin: 0;
+  color: #fff;
+  letter-spacing: inherit;
+}
+.mailrow {
+  background: white;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #d6dde5;
+  margin: 0;
+  padding: 17px 12px;
+}
+.mailrow > span {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 20px;
+  width: 100%;
+}
+.mailrow strong {
+  font-size: 13px;
+  color: var(--ink);
+}
+.mailrow b {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+.mailtop {
+  padding-bottom: 18px;
+}
+.sender {
+  display: block;
+}
+.sender small {
+  margin-top: 3px;
+}
+.mailtop h1 {
+  font-size: 30px;
+}
+.attachmentheading {
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.attachments {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.attachment {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 15px;
+  background: white;
+  min-height: 132px;
+}
+.attachment svg {
+  width: 32px;
+  height: 38px;
+  fill: #e5ebf1;
+  stroke: #8d9dae;
+  stroke-width: 1.3;
+}
+.attachment strong {
+  font-weight: 400;
+  line-height: 1.5;
+}
+.docmeta {
+  justify-content: flex-start;
+}
+.paper h1 {
+  margin-top: 28px;
+  font-size: 46px;
+}
+.paper p {
+  font-size: 15px;
+}
+.instructions {
+  padding-left: 24px;
+}
+.instructions li {
+  padding: 0 0 18px 8px;
+}
+.example {
+  border-left: 3px solid var(--blue);
+  background: #e9eef1;
+  padding: 18px 24px;
+  margin: 10px 0 24px;
+}
+.example h2 {
+  margin-top: 0;
+}
+.example ol {
+  padding-left: 20px;
+}
+.example li {
+  padding-bottom: 12px;
+}
+.signature {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.gate h1 {
+  font-size: 36px;
+}
+.passwordfield svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  vertical-align: middle;
+}
+.profiles {
+  margin-top: 25px;
+}
+.chathead strong {
+  font-size: 16px;
+}
+.mailapp {
+  margin-bottom: 36px;
+}
+footer {
+  display: none;
+}
+@media (max-width: 760px) {
+  .brand {
+    font-size: 22px;
+    gap: 11px;
+  }
+  .brand img {
+    width: 36px;
+    height: 36px;
+  }
+  .brand span {
+    font-size: 22px;
+  }
+  .mailrow > span {
+    display: block;
+  }
+  .mailrow strong {
+    margin-bottom: 6px;
+  }
+  .attachments {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .attachment {
+    min-height: 135px;
+  }
+  .paper h1 {
+    font-size: 36px;
+    margin-top: 25px;
+  }
+  .instructions li {
+    padding-left: 4px;
+  }
+  .example {
+    padding: 15px;
+  }
+  .paper h2 {
+    font-size: 27px;
+  }
+}
+@media (max-width: 380px) {
+  .attachments {
+    grid-template-columns: 1fr;
+  }
+  .brand span {
+    font-size: 19px;
+  }
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e4eaf0;
+  color: #405572;
+  border: 1px solid #c4ceda;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.back:hover {
+  background: #d7e0e9;
+}
+.docmeta {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.signature {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0;
+}
+.email-subject {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 4px 0 30px;
+}
+.email-subject h1 {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+  margin: 0;
+}
+.inbox-chip {
+  font-size: 11px;
+  background: #e5e7e8;
+  border-radius: 4px;
+  color: #55616b;
+  padding: 1px 7px;
+  flex-shrink: 0;
+}
+.sender {
+  padding: 0 0 26px;
+  line-height: 1.6;
+  border-bottom: 0;
+}
+.sender-line {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.sender-line strong {
+  font-size: 15px;
+}
+.sender-line > span,
+.recipient-line {
+  font-size: 13px;
+  color: #67727e;
+}
+.recipient-line {
+  margin-top: 4px;
+}
+.recipient-line span {
+  margin-left: 5px;
+}
+.mailbody {
+  padding-top: 0;
+}
+.attachmentheading {
+  font-size: 14px;
+  font-weight: 600;
+  border-top: 1px dotted #d0d6dc;
+  padding-top: 18px;
+}
+.attachment {
+  height: 150px;
+  background: white;
+  position: relative;
+  border: 1px solid #e0e4e8;
+  border-radius: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  text-align: center;
+  padding: 18px 12px;
+}
+.attachment:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-bottom: 18px solid #c8cdd2;
+}
+.attachment svg {
+  height: 45px;
+  width: 40px;
+}
+.attachment strong {
+  font-size: 12px;
+}
+.chatnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+}
+.chatnav .back {
+  margin: 20px 0;
+}
+.restart {
+  background: transparent;
+  border: 1px solid #b9c5d2;
+  color: #4c607a;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.chathead {
+  margin-top: 0;
+}
+.chathead small {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 11px;
+}
+.chatlog {
+  height: 460px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  min-height: 260px;
+}
+.chatcomposer {
+  background: #f7f9fb;
+  border-top: 1px solid #c9d2db;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.chatcomposer p {
+  margin: 0;
+  flex: 1;
+  font-size: 13px;
+  color: #4e6073;
+}
+.chatcomposer .primary {
+  width: auto;
+  min-width: 135px;
+  margin: 0;
+  border-radius: 5px;
+}
+.chatcomposer .primary:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.interactive-chat {
+  margin: 20px 18px 35px;
+  border: 1px solid #c9d2db;
+  box-shadow: 0 10px 30px #1e2a3710;
+}
+.bubble {
+  animation: appear 0.2s ease-out;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 760px) {
+  .email-subject {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .email-subject h1 {
+    font-size: 23px;
+    line-height: 1.3;
+  }
+  .inbox-chip {
+    margin-top: 5px;
+  }
+  .sender-line {
+    gap: 2px;
+  }
+  .sender-line strong {
+    font-size: 14px;
+  }
+  .sender-line > span {
+    font-size: 11px;
+  }
+  .docmeta {
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+  .chatlog {
+    height: 52vh;
+    min-height: 300px;
+  }
+  .chatcomposer {
+    padding: 14px;
+    gap: 12px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .chatcomposer .primary {
+    width: 100%;
+  }
+  .interactive-chat {
+    margin: 10px;
+  }
+  .chatnav {
+    padding: 0 12px;
+  }
+  .attachment {
+    height: 140px;
+  }
+  .chatcomposer p {
+    font-size: 13px;
+  }
+}
+
+.chat-avatar {
+  overflow: hidden;
+  position: relative;
+}
+.chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.chat-avatar > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}

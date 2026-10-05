@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="id"
+  ><head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width,initial-scale=1" /><title
+      >Transcript: Yo Han and Il Kijang · Elite Protection Bureau</title
+    ><link rel="stylesheet" href="style.css" /></head
+  ><body
+    ><header
+      ><a href="index.html" class="brand"
+        ><img src="assets/EPB%20Logo.png" alt="" onerror="this.hidden = true" /><span
+          >Elite Protection Bureau</span
+        ></a
+      ></header
+    ><main id="secure"
+      ><section class="gate"
+        ><a class="back" href="index.html">Back to inbox</a><h1>Transcript: Yo Han and Il Kijang</h1
+        ><p>Enter the password to access this document.</p
+        ><form id="unlock"
+          ><label for="password">Password</label
+          ><div class="passwordfield"
+            ><input id="password" type="password" required autocomplete="off" /><button
+              type="button"
+              id="show"
+              aria-label="Show password"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+                <circle cx="12" cy="12" r="3" /></svg></button></div
+          ><button class="primary" type="submit">Open the Documents</button
+          ><p id="error" role="alert"></p></form></section></main
+    ><script>
+      const payload = {
+        salt: "RkOJsLrck7V45dd/7dMU9A==",
+        iv: "6xJD5Xxy0mWskbeB",
+        data:
+          "k3Qr6N+U4L5DhrUsmwSi6u9NngoMu36SX/w8sz+Vp5eHUWVphsYlOlYF5AzjEwZF+1THCWy+Xr87CLr6xiDq7ZOY" +
+          "gzfpkzb6jTGvE0G2XVKFl37veA0ZyBhKjVGqEWUgnsURpdv7HDix0NRrMBaw97sDSGkiLT9/Tk1ZsSdAdokclYOf" +
+          "CfJ+nZyEzrYyk4pTxzvatMR50CXqTvQxtey0+TY6n3OwepaivoRDSsvL+odDkf5BOB1CY/YQSycspNWp8kyNb4lN" +
+          "Rb0n0vQCMUlo5SjSFqS6DXvKY2UEbSes9PXeFk7hc3qlx7WjRjZx8mSKiwsGk82IUZ9o6hGTp9P7mRPPx1BbiA2v" +
+          "EPKjXRiQOjWeLutJSvBvOPueQwijFcdK02vOlpTX+vXU1f/j2KdcY9m1EfmZj7NIQuupQl1O+zwiiZMVvzyzaCfn" +
+          "dQrQ1i6VC3R2TxPM0QsXDxW8046HgcEdFc+JWeio3SNZX+BladyKk4Qwwv24q+YxSw5y/wMYPiK4aVz7nSjp5Pk3" +
+          "PNghWWJ6SyurAernFpQ+GtGkO/F0JMZJ07wSXEyxc30R2at3bD2OYnBtMvyXPaxJ6R1YMWOe4Q5EXtxbciwdKAeE" +
+          "CkQtTO2Zi08t24liR52FeE2Vysx3ns3/YGD8587rxu4DVgIGzWJcf/H5raJJ1AN+E0hPA6xgN390Jz92nolwNOa0" +
+          "bxNCWn4hvYzRgLF4+zpvg6Hyzcdqg4S2j51usjDDU4HpabSXitHZeMZLy5HhIaTR0KM3LzcdJdJXwOUYLlVJnmA/" +
+          "w4frQUfXrInj/o6Ax9Bah+8jM+BeZZzyPr+l7C+fr9p4OeG3g28vePgx0dobrp/SRsVJyMOukaY392FzbNPIB4Wl" +
+          "nCcA0FI1y++3q1pafFtmiKpK3Au82Cmbbi2LgA==",
+      };
+      const bytes = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+      document.getElementById("show").onclick = () => {
+        const p = document.getElementById("password");
+        p.type = p.type === "password" ? "text" : "password";
+        document
+          .getElementById("show")
+          .setAttribute("aria-label", p.type === "password" ? "Show password" : "Hide password");
+      };
+      document.getElementById("unlock").onsubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const raw = await crypto.subtle.importKey(
+            "raw",
+            new TextEncoder().encode(document.getElementById("password").value),
+            "PBKDF2",
+            false,
+            ["deriveKey"],
+          );
+          const key = await crypto.subtle.deriveKey(
+            { name: "PBKDF2", salt: bytes(payload.salt), iterations: 120000, hash: "SHA-256" },
+            raw,
+            { name: "AES-GCM", length: 256 },
+            false,
+            ["decrypt"],
+          );
+          const result = await crypto.subtle.decrypt(
+            { name: "AES-GCM", iv: bytes(payload.iv) },
+            key,
+            bytes(payload.data),
+          );
+          document.getElementById("secure").innerHTML = new TextDecoder().decode(result);
+          document.getElementById("secure").classList.add("unlocked");
+          await startChat(key);
+        } catch {
+          document.getElementById("error").textContent = "Incorrect password. Please try again.";
+        }
+      };
+      async function startChat(key) {
+        const encryptedMessages = {
+          iv: "zDlkzK1liPcH1IIk",
+          data:
+            "0Vf8YssEmPKuITIt5UdMidOiTdCZrl4nuwxMQlB1GGQ08pM8rJF4eS+T+zspLpNjHYEywAaLUOQHUWHIvnj3rAgD" +
+            "IFPnzJtH0g0MxN8y6YcXSE0OgQa7WkuSnK5Afa2eDnQGNlrIkXuULYnD+8Kt8FFanevkWUSkftOC1mvHsFappsMZ" +
+            "LXCnE0hXjgH8Bw0zKHahzzmIkt5DkEnbXLEFgcxf8rjwpaErN2uLPLQ2T5bdv+z4qhRwuxoiSEX3z5XcOeoA2gVZ" +
+            "eHutB9qez7lEgfPHznmKA15oEyc6vGkEVKWu2dY5aBwbjsPn8CiWqT4YdwzTugHlMCQn4hzlTI4WS2LEIjONqwdU" +
+            "Gx2aBQ4ek2mKbnP8M3WW/9vEHXtmQJ7MU0zmCPADJhpLGJu5MyYELFrRH+g1GauiIovBRj3akmg7r1uGrSUHYqZU" +
+            "M5KIbQyFa1TOtz8e5cqrqXmRJVKyj8a1/Df2/9ybGh9wOWQtiPbq2oafu7XFmpTVk8z7wpZW4oA2yZt8WwLsbGJa" +
+            "bIuBGlQOjJkSQ+CgHnSWMLc+twnGfwpUYHnrknIwUDBbBN5KXq0X1WWX6dg+xOVRJBQR6UTtqk6HXG7Oil7MpeQx" +
+            "YMswTKlZb/61NCAfejmCcI7086OoV6ly9cwXyLot0l1MIisBZ7fw78N9mNvWnxyO5GAvZk+2SakQi/uarbTwQ+k9" +
+            "YBAhuP6oyLNt8PQrBgWnuuqyVNa9ksy075KSoCXDuYqBYFCfz4Tw9diowoyiaaNkY/v3Aix5fgmcTQoeTfJ7uXtT" +
+            "tJVNN3g3YMT69X+h76KQcoZ9Zk2Xulgk7Ek+AakMRJVELawC+tAMpvyKaUpalp3cPJ0WW70H+9Q5f/UUOAOwVAv4" +
+            "5mfW2IyINv/uEWKFMacy7RB7W4DP9pR/3KE93YJ+qNPzzlHR0FCzaNgkCuLUyLvo1iRKAfG7dpFQXn4z41p64BTr" +
+            "r0XIh27saPK4K8YorQXwU9lXvTcHExuZaPDbgtT96Hr3Atf5yAa787yvsydMH5w3HGMoTkTqA5EaD+p+6DdmUWMU" +
+            "yB08dLiby5HRCkRFPHvRE+yKaRsYsvpSRkE66RVHZrLhHngSjwa2JDb+482ja+pbCnYlLZb3GqcweHwCRoPRSo61" +
+            "SiQH3mBaP9ZeRfPv0XZ8N0S5++33/kFWbMwAaKgGoxGH06lVCjlOIMTwp4Sa3P31lJQV4xEuR2clXm4HGRsLZ5hY" +
+            "lBSq4hks3ypUFwhuALHwJk5+oo00BYK7G9JxabHchTlxKZH4crHOncd0ElyFS95MKxhGrb779v/DAmZrw4g+XuxH" +
+            "wBu+gJKT8mcITCDCJqQqSL1pP0RUMZoj7bno5ka1RVGokql2ZBVrIR3jtkpPdQmsi3fB6YIC04MkJFwomfPNffY2" +
+            "1pDpLGzVqJLRKT5+Ye4b+cAUPBXZk6dnSjFF1JIUJa4Nb6oLnnLcYoJXt89Tymqv/9dyDRCnY7dt3QqiwvzlG0oc" +
+            "6ojiuGfWNALXaAdHalrfMwpndHFNlY4mhLhfiFvUZROmfG5hxqQwVvMcZgGFxvc/GfuAyJRpGHFjeV2QEnNSSvCA" +
+            "T1dEWVJeoz9XOTBG06JpmxX+VQ/aLXoIEDkzdF1XEdHSazA1bIJNv83gkhh3RDAU63Co0jWqFMU9R01NB+lPxJoK" +
+            "S77cQcZNsiQgnUJ+kxdkK7QtMqIAL1GvwdxtWVFJYpyLQBoAAwBevTbUnw1BrQ7a8OXl+9glASZaHoIPXq4xIQlS" +
+            "yOdl2mEoSZ/QU+H4Vjo7dv9i5R+FbPp7xzZjEKMCU3thDsQ/c5rrxinWLzDtYZECSkKbSzx8AHUuFkeBfbQ/pD2C" +
+            "ZeeOMz0+hjC2sWJUIyGDeWhSw0exN95facvVd3ZLl7WFbzewxV1xoJZI0BvGrjTzT+eyALcDU1bSPhxJBDUNrpLt" +
+            "L2WUfMyt0iFRAVekPOxxeztwZmohSzIHAokMuFndtWpI0FfcktSwdZkAjbPyzLAI58jDkWNGAOX3lstAwdhyMcF2" +
+            "JrHEvseC5xHriodvxp9yeYDO6k2axkvlUISV66HHlpoh6WHo5BK9HtJjeL3LkK/BUzIEI3BUcJgkirHFT//5k3+l" +
+            "olaPjW1LLL3LBLI5GUwvFBRXWbbWr4OKbt/nsq4ztlrFuWN0xgeBG8GNCCK784601D7nUeI4KCi8xD3Nenb107qI" +
+            "2Qyh+By0WNbpLJ2d01sQrOZH12IOMm737Zo0aH3Gx8CGYg3oO1HlfJBpocXNMqdxTEGhbqGEoxisLc7PdxpX0F3e" +
+            "DobitxHwA3Jl3LpJSibHch0pGCVShFbOn7lCdvcr0Uqisx2bIkVHZujszP2PZD+GA8UaSsRanOyzP+taflvlfxb9" +
+            "jQjQZpU5LjpCEA28ms4pWIR24ltVFv/6eBC+5Ki1PssgnHr7z5URs/9GFJgepL6lSS1g1RkN/M0MHkKsre7CVdgL" +
+            "Y4nIiiITF5i+8C8fnMCNzJaukPozApodrbI0BME7q3pHOQmZDpaibMSU+GnkQ6iVYFilujXJ7hzfTd1B3F6DdwQk" +
+            "L1I8WAJaoLEybNmuMcDigcJXnR3XHzQq5zsy/Fim33d2OrwNAfcjhuyJgd0BzBOVn66vrylKtkBjXsXs5HnNesuF" +
+            "OjiDzqvubId+/f8IeYt80PaKwvXpjpAXK7aXCHBrja3qw698UuAwAQOMK/BrH9R9PhplwXtfNtVXLMwFflEk0wt7" +
+            "2FRr3lfYOcS7Hp+Wgj/5uMzNI745PNHBT1lUoMFcWatxpsOViYBl6bunG87nopSplpw3EATk445iuBAFDJ0scq+L" +
+            "EP9pZLviVa2adPzqe0bTRFypHaEHfGtOXu9Fln9MbpaEPzyQycCfiu3PhnBGSyG8mTxEvUPPZfGp6VCP2/7/p1AK" +
+            "9am6ZrNPLuksAJOY69T9/aG41xpa2hKZM22uWfnZ2PhixlHghh5FA9B2aWycskkkRRC7bpWVEZWExqNGx7LpZFDm" +
+            "+9mmcAQIzusKm7lL3wgCYKvvPzHCOoU87cHVx6pZODCQD4zKMrOnv/OEO9UN7KTqGF9NVhfgjeRZ9bn4De68e6e3" +
+            "tX3zo9sqJayIaOu/e6NkzUZxC7UygeyLIRi+yO6nTz7rwRkFoUdVWLSexdooC+AuTPYyYdCD1jlY1Y9mitRGOv2Y" +
+            "yQXknvhbHPP4ZhljHQ79Wq9iTdcNJXZHXjZYQ5R16uJzGj54IVz0PMcWT6u/UwTL8or66P2KjKoHh434hruEmoZS" +
+            "6qnvy5u8iZ+5OGnj5eGfcZOYptlFESvjgmkCnytfBPyWYkAhsN1vP/XuVFqDRj1TDht1NO5acwvmy5yLsHNdeht9" +
+            "RewANC6ZLjH7cl+eebRKr2leIdRfaWuXEKGz+VTFc8AVxgPd1S0bj0uFXtkTu03tXYMmQxfsPKQ1xNzBxuJdY+se" +
+            "TKIVgdHRNnYl3KU9+IQf8A5gSdzHblB7YQ7oOGOXcTG5e9fiNOWMEGuxQg57WzPsZ2lhl1C0yh90kSKDQ0E/OM+8" +
+            "+xJKMgPn2DiiCQDoXrwKk9AQ6yNMBPs9hM71NTuGsT/BilDbWV1mPUWwR99X/OiyamkqF/zhRioWTKJgIjYlU2Kn" +
+            "0pJ8yRFlv9eg9g66Ynhp0sw2hedZGMJrfUE3+8zUw9ffnUWR/uZBW/eEVgTLOWCZVKJ8Nb3iRcqovMmFTJ1qda+N" +
+            "c0qlNQ52IEt7sLuLaaqnH3qX/mARXuXZrQ8ODlMzbX2aYbFBQKNUZRF8YZ7D3Gk4aCUYXyXxzOAUZZZkmoNO80aj" +
+            "W3D0wuuNt7dmjjoD5KwbT1mUcRjgAErepOMiAHie02cS5w61vQOmqAlZvOhyCdx9c1GrbV0Ub7dyB/tmCIe8fkuw" +
+            "Kh0OaDVYiqMCc6NIKqR8glLPSyKtBAbmN8yo7DUi/dxdn6KzoC2Fbd49647+eIj+Q3okTNZlBJIJ74MbF8FJe7Qf" +
+            "e5xYYN9bk040/+Gnk1rUifN/TfiSs/Z5lqe/lQvmMbQ9YCxIODDrQVn+w1lbmCez6bsoPJS45+SO54eMX2EqW3B1" +
+            "LUsCpxGio00uTB1C8VOeWYGt/0CFJOq5JoLsCYYVSx+eHNS6kUBJwYwok5KGjKpfWk9FusuKYh26DLSidldg6Z/J" +
+            "jnjSEPg9jAVFMBwDoiPlU/imF3heFPTYqc4AQZR6/mIquHNSz0xMbHedQMxl44yNd89JD+pUFVZSeYx3hPQivjhY" +
+            "lsBPSdFHEsI7vulECsPie5PQx5UcicItYtryuRh6UtBJCXl7C6/znInSZ0k2aO+nmIo=",
+        };
+        const raw = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv: bytes(encryptedMessages.iv) },
+          key,
+          bytes(encryptedMessages.data),
+        );
+        const messages = JSON.parse(new TextDecoder().decode(raw));
+        const log = document.getElementById("chatlog"),
+          send = document.getElementById("sendchat"),
+          next = document.getElementById("nextmessage"),
+          status = document.getElementById("chatstatus");
+        let cursor = 0,
+          timer = null,
+          run = 0;
+        function append(m) {
+          const bubble = document.createElement("div");
+          bubble.className = "bubble " + m.role;
+          const who = document.createElement("small");
+          who.textContent = m.name;
+          const content = document.createElement("p");
+          content.textContent = m.text;
+          bubble.append(who, content);
+          log.append(bubble);
+          log.scrollTop = log.scrollHeight;
+        }
+        function ready() {
+          if (cursor >= messages.length) {
+            next.textContent = "[chatroom disabled.]";
+            send.hidden = true;
+            status.textContent = "Chatroom disabled";
+            const done = document.createElement("div");
+            done.className = "disabled";
+            done.textContent = "[Chatroom disabled.]";
+            log.append(done);
+            log.scrollTop = log.scrollHeight;
+            return;
+          }
+          next.textContent = messages[cursor].text;
+          send.disabled = false;
+          send.hidden = false;
+          status.textContent = "Online";
+        }
+        function replies(currentRun) {
+          if (currentRun !== run) return;
+          if (cursor < messages.length && messages[cursor].role === "in") {
+            send.disabled = true;
+            next.textContent = "Jeon Yo Han is typing…";
+            status.textContent = "Typing…";
+            timer = setTimeout(() => {
+              if (currentRun !== run) return;
+              append(messages[cursor++]);
+              replies(currentRun);
+            }, 800);
+          } else ready();
+        }
+        send.onclick = () => {
+          if (send.disabled || cursor >= messages.length) return;
+          append(messages[cursor++]);
+          replies(run);
+        };
+        document.getElementById("restartchat").onclick = () => {
+          clearTimeout(timer);
+          run++;
+          cursor = 0;
+          log.replaceChildren();
+          ready();
+        };
+        ready();
+      }
+    </script></body
+  ></html
+>

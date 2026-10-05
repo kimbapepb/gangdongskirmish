@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id"
+  ><head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width,initial-scale=1" /><title>Inbox · Elite Protection Bureau</title
+    ><link rel="stylesheet" href="style.css" /></head
+  ><body
+    ><header
+      ><a href="index.html" class="brand"
+        ><img src="assets/EPB%20Logo.png" alt="" onerror="this.hidden = true" /><span
+          >Elite Protection Bureau</span
+        ></a
+      ></header
+    ><div class="mailapp"
+      ><aside
+        ><h2>Mailbox</h2><div class="folder">▤ &nbsp; Inbox <b>1</b></div
+        ><div class="asidebottom"
+          >GANGDONG OPERATION<br /><small>Elite Protection Bureau</small></div
+        ></aside
+      ><main class="mailmain"
+        ><div class="mailtop"
+          ><h1>Inbox <small>1 message</small></h1></div
+        ><button class="mailrow" id="openmail" aria-expanded="false"
+          ><span
+            ><strong>Minister of Education</strong><b>Intel Information About Gangdong</b></span
+          ></button
+        ><article id="message" hidden
+          ><button class="back" id="closemail">Back to inbox</button
+          ><div class="email-subject"
+            ><h1>Intel Information About Gangdong</h1><span class="inbox-chip">Inbox</span></div
+          ><div class="sender"
+            ><div class="sender-line"
+              ><strong>Minister of Education</strong><span>&lt;moedu@korea.kr&gt;</span></div
+            ><div class="recipient-line">to Rookies <span aria-hidden="true">▾</span></div></div
+          ><div class="mailbody"
+            ><p>Dear Rookies,</p
+            ><p
+              >Saat ini kalian sedang ditugaskan untuk mengepung sebuah geng kekerasan siswa
+              terbesar di Gangdong yang bernama Dragon Quartet. Secara garis besar, geng ini
+              melibatkan empat sekolah paling berpengaruh di Gangdong. Pemimpin mereka masing-masing
+              dipercaya oleh jaringan pusat untuk mengelola gym yang ada di Gangdong. Gym tersebut
+              diduga menjadi tempat untuk melatih siswa-siswa SMA agar mereka dapat memenangkan
+              tawuran. Kompetisi tersebut mengakar begitu kuat di daerah Gangdong, karena siapa pun
+              yang memenangkan tawuran tersebut bisa mendapatkan pengakuan dari Oh Taegyeong,
+              pemimpin dari Tiger Fist yang menguasai bisnis gelap di Gangdong. Kompetisi
+              antar-sekolah ini sudah begitu berdarah dan menelan banyak korban. Saatnya kalian
+              membantu para Inspectors menghentikannya.</p
+            ><p
+              >Saat ini, kami telah mendapatkan Jeon Yo Han, pemimpin dari sekolah Seongdeok High
+              School yang merupakan salah satu dari Dragon Quartet. Dia mengelola sebuah gym yang
+              bernama Iron District yang terletak tidak jauh dari Seongdeok High School. Proses
+              interogasi sedang berlangsung agar Yo Han membuka mulut tentang letak dari tiga gym
+              lainnya, beserta sekolah yang tergabung dalam Dragon Quartet. Kami akan memberi tahu
+              kalian lebih lanjut apabila rekaman transkrip antara Yo Han dan penyidik sudah
+              siap.</p
+            ></div
+          ><div class="attachmentheading">4 attachments</div
+          ><div class="attachments"
+            ><a class="attachment" href="mission-brief.html"
+              ><svg viewBox="0 0 40 48" aria-hidden="true">
+                <path d="M5 2h20l10 10v34H5z M25 2v10h10" /></svg
+              ><strong>Mission Brief</strong></a
+            ><a class="attachment" href="directory.html"
+              ><svg viewBox="0 0 40 48" aria-hidden="true">
+                <path d="M5 2h20l10 10v34H5z M25 2v10h10" /></svg
+              ><strong>Gyms and Schools Around Gangdong</strong></a
+            ><a class="attachment" href="transcript.html"
+              ><svg viewBox="0 0 40 48" aria-hidden="true">
+                <path d="M5 2h20l10 10v34H5z M25 2v10h10" /></svg
+              ><strong>Transcript: Yo Han and Il Kijang</strong></a
+            ><a class="attachment" href="arrest-warrant.html"
+              ><svg viewBox="0 0 40 48" aria-hidden="true">
+                <path d="M5 2h20l10 10v34H5z M25 2v10h10" /></svg
+              ><strong>Arrest Warrant</strong></a
+            ></div
+          ></article
+        ></main
+      ></div
+    ><script>
+      const m = document.getElementById("message"),
+        b = document.getElementById("openmail");
+      b.onclick = () => {
+        m.hidden = false;
+        b.hidden = true;
+        b.setAttribute("aria-expanded", "true");
+      };
+      document.getElementById("closemail").onclick = () => {
+        m.hidden = true;
+        b.hidden = false;
+        b.focus();
+      };
+    </script></body
+  ></html
+>
